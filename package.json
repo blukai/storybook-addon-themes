@@ -1,6 +1,6 @@
 {
-  "name": "@blukai/storybook-addon-themes",
-  "version": "1.0.0",
+  "name": "@hitagi/storybook-addon-themes",
+  "version": "1.0.1",
   "description": "storybook themes addon can be used to change storybook and story theme with within dropdown menu",
   "main": "dist/index.js",
   "scripts": {
