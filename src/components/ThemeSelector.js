@@ -2,7 +2,7 @@ import React, { useState, useCallback, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Icons, IconButton, WithTooltip, TooltipLinkList } from '@storybook/components';
 import { STORE_KEY, INIT_THEMES, CHANGE_THEME } from '../constants';
-import { findTheme } from '../helpers';
+import { getTheme } from '../helpers';
 
 const ThemeSelector = ({ api, chan }) => {
   const [shown, setShown] = useState(false);
@@ -18,7 +18,7 @@ const ThemeSelector = ({ api, chan }) => {
   const onInit = useCallback(ths => {
     setThemes(ths);
 
-    const theme = findTheme(ths, localStorage.getItem(STORE_KEY));
+    const theme = getTheme(ths, localStorage.getItem(STORE_KEY));
     api.setOptions({ theme: theme.storybook });
   }, [api]);
 

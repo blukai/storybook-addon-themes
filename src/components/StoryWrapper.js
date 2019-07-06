@@ -1,21 +1,21 @@
 import React, { useState, useCallback, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { STORE_KEY, INIT_THEMES, CHANGE_THEME } from '../constants';
-import { findTheme } from '../helpers';
+import { getTheme } from '../helpers';
 
-const StoryWrapper = ({ ThemeProvider, children, chan }) => {
-  const [theme, setTheme] = useState(() => findTheme(
-    window[STORE_KEY],
+const StoryWrapper = ({ ThemeProvider, themes, children, chan }) => {
+  const [theme, setTheme] = useState(() => getTheme(
+    themes,
     localStorage.getItem(STORE_KEY),
   ));
 
   const onChange = useCallback(themeName => {
-    setTheme(findTheme(window[STORE_KEY], themeName));
+    setTheme(getTheme(themes, themeName));
   }, []);
 
   useEffect(() => {
     // let ThemeSelector know, that themes are in
-    chan.emit(INIT_THEMES, window[STORE_KEY]);
+    chan.emit(INIT_THEMES, themes);
 
     chan.on(CHANGE_THEME, onChange);
 
