@@ -3,12 +3,13 @@ import addons from '@storybook/addons';
 import StoryWrapper from './components/StoryWrapper';
 import { STORE_KEY } from './constants';
 
-const withThemes = ({ ThemeProvider, themes }) => (storyFn, context) => {
+const withThemes = ({ Provider, themes, ...restProps }) => (storyFn, context) => {
   const chan = addons.getChannel();
 
   return (
     <StoryWrapper
-      ThemeProvider={ThemeProvider}
+      {...restProps}
+      Provider={Provider}
       themes={themes}
       chan={chan}
     >

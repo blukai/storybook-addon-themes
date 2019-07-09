@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { STORE_KEY, INIT_THEMES, CHANGE_THEME } from '../constants';
 import { getTheme } from '../helpers';
 
-const StoryWrapper = ({ ThemeProvider, themes, children, chan }) => {
+const StoryWrapper = ({ Provider, themes, children, chan, ...restProps }) => {
   const [theme, setTheme] = useState(() => getTheme(
     themes,
     localStorage.getItem(STORE_KEY),
@@ -25,16 +25,16 @@ const StoryWrapper = ({ ThemeProvider, themes, children, chan }) => {
   }, [chan, onChange]);
 
   return (
-    <ThemeProvider theme={theme.provided}>
+    <Provider theme={theme.provided} {...restProps}>
       {children}
-    </ThemeProvider>
+    </Provider>
   );
 };
 
 StoryWrapper.propTypes = {
   children: PropTypes.node,
 
-  ThemeProvider: PropTypes.oneOfType([PropTypes.func, PropTypes.object]).isRequired,
+  Provider: PropTypes.oneOfType([PropTypes.func, PropTypes.object]).isRequired,
 
   chan: PropTypes.shape({
     emit: PropTypes.func.isRequired,
