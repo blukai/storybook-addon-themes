@@ -1,6 +1,6 @@
 {
   "name": "@hitagi/storybook-addon-themes",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "storybook themes addon can be used to change storybook and story theme with within dropdown menu",
   "main": "dist/index.js",
   "scripts": {
