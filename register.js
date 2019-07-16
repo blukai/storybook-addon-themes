@@ -1,1 +1,1 @@
-require('./dist/register');
+require('./build/register');
