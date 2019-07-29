@@ -1,6 +1,11 @@
 import React, { useState, useCallback, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { Icons, IconButton, WithTooltip, TooltipLinkList } from '@storybook/components';
+import {
+  Icons,
+  IconButton,
+  WithTooltipPure as WithTooltip,
+  TooltipLinkList,
+} from '@storybook/components';
 import { STORE_KEY, INIT_THEMES, CHANGE_THEME } from '../constants';
 import { getTheme } from '../helpers';
 
